@@ -1,7 +1,7 @@
 
 import pandas as pd
 
-dt = pd.read_csv("Dir_Pandas/2019 - Copy.csv") 
+dt = pd.read_csv("Dir_Pandas/2019 - Copy.csv",na_values=False) 
 
 hd = dt.head() # prints out top five rows by default
 tl = dt.tail() # prints out last five rows by default
@@ -23,4 +23,12 @@ dt = dt.rename(columns={'Score':'Scores'}) # Rename specific column
 # only there after can these changes take effect
 renamed_Column = dt['Scores']
 filter_byQueryCountry = dt.query('Country == ["Finland","Austria","Denmark","Norway"] & Scores > 7.5') # Query is very importand 
-print()
+countries = ['Germany','Austria','Finland','Ghane','Norway','Gabon','Switzerland','South Sudan'] # The isin function takes in a list and compares
+# if the values in the column are in the supplied list
+filter_countries = dt['Country'].isin(countries)
+get_countries = dt.loc[filter_countries,'Country']
+languages = dt['Languages']# Filter results 
+# String extensions
+# lower(), upper(), remove(), replace(), contains(), split()
+get_languages = dt.loc[languages,'Languages'] # Apply filter
+print(help(str))
