@@ -1,3 +1,5 @@
 {
-    "python.defaultInterpreterPath": "C:/Users/ajang/AppData/Local/Programs/Python/Python38/python.exe"
+    "python.defaultInterpreterPath": "C:/Users/ajang/AppData/Local/Programs/Python/Python38/python.exe",
+    "python.analysis.autoImportCompletions": true,
+    "files.autoSave": "afterDelay",
 }
