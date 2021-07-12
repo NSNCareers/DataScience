@@ -9,7 +9,7 @@ class Employee:
     yahoo = '@yahoo.com'
     num_of_employees = 0
     
-    def __init__(self,fistName, lastName, gender, pay):
+    def __init__( self, fistName, lastName, gender, pay):
         self.first = fistName
         self.last = lastName
         self.gender = gender
@@ -42,5 +42,5 @@ print(Employee.raise_amount)
 
 print(emp_1.__dict__) # This prints out the name space of emp_1
 print(emp_2.__dict__) # This prints out the name space of emp_2
-print(Employee.num_of_employees)
+#print(Employee.num_of_employees)
 
