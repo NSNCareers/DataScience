@@ -7,6 +7,7 @@ add_columns = dt['Score'].map(str) + ' ' + dt['GDP per capita'].map(str)
 dt['Score_GDP'] = add_columns
 scoreGdp = dt['Score_GDP'] # New column added
 hd = dt.head(10) 
+dt.rename(columns = {'test':'TEST'}, inplace = True) # rename column
 drop_columns = dt.drop(columns=['Score_GDP','Score'],inplace=True)
 # inplace changes or make changes to the data frame
 hd = dt.head(10) # Verify columns removed
