@@ -50,11 +50,17 @@ def update_country(country):
         return country.replace('is very cold','')
     else:
         return country
-    
+
+def updateRow(country):
+    if '#' in country:
+        return country.replace('#','')
+    else:
+        return country
+
 # Check bool result
 boolResult = dt['Country or region'].str.contains('Finland')
 # To update dataframe, put in new column
-dt['new countries'] = dt['Country or region'].apply(update_country)
+dt['Countries'] = dt['Country or region'].apply(updateRow)
 # update_cellContent1 = dt['Country or region'].apply(lambda x : x.lower())
 dt['country'] = dt['Country or region'].apply(lambda x: x.replace('is very cold','') if x=='Finland is very cold' else x)
 # update_cellContent2 = dt['Country or region'].apply(update_countryOrRegion2)
