@@ -20,9 +20,9 @@ with open('Dir_Pandas/2019 - Copy.csv','r') as f:
 # Export to new file
 filt = (dt['Country or region']== 'Denmark')
 senegal_dt = dt.loc[filt]
-modified_excel = senegal_dt.to_csv('Dir_Pandas/2019Modified - Copy.csv')
+modified_excel = dt.to_csv('Dir_Pandas/2019Modified - Copy.csv')
 # Export json
-modified_json = senegal_dt.to_json('Dir_Pandas/2019Modified - .json',orient='records', lines = True)
+modified_json = dt.to_json('Dir_Pandas/2019Modified - .json',orient='records', lines = True)
 
 # Reading csv files using Pandas
 skip_rows = pd.read_csv("Dir_Pandas/2019 - Copy.csv",skiprows = 3) # Skip rows
@@ -45,17 +45,33 @@ def update_countryOrRegion3(country):
     if country == 'Denmark':
         return country.strip('Den')
 
-update_cellContent = dt['Country or region'].apply(update_countryOrRegion1)
-update_cellContent1 = dt['Country or region'].apply(lambda x : x.lower())
-update_cellContent2 = dt['Country or region'].apply(update_countryOrRegion2)
-update_cellContent3 = dt['Country or region'].apply(update_countryOrRegion3)
+def update_country(country):
+    if country == 'Finland is very cold':
+        return country.replace('is very cold','')
+    else:
+        return country
+
+def updateRow(country):
+    if '#' in country:
+        return country.replace('#','')
+    else:
+        return country
+
+# Check bool result
+boolResult = dt['Country or region'].str.contains('Finland')
+# To update dataframe, put in new column
+dt['Countries'] = dt['Country or region'].apply(updateRow)
+# update_cellContent1 = dt['Country or region'].apply(lambda x : x.lower())
+dt['country'] = dt['Country or region'].apply(lambda x: x.replace('is very cold','') if x=='Finland is very cold' else x)
+# update_cellContent2 = dt['Country or region'].apply(update_countryOrRegion2)
+# update_cellContent3 = dt['Country or region'].apply(update_countryOrRegion3)
 
 # Applymap works for the entire dataframe
 # get_allRowLength = dt.applymap(len) # If all your columns are strings
 
 # Map only works for a series
-get_mapp = dt['Country or region'].map({'Denmark':'DDK','Germany':'Euro'}) # mapps with nan values
-get_replace = dt['Country or region'].replace({'Denmark':'DDK','Germany':'Euro'})
+dt['Map'] = dt['Country or region'].map({'Denmark':'DDK','Germany':'Euro'}) # mapps with nan values
+dt['Replace'] = dt['Country or region'].replace({'Denmark':'DDK','Germany':'Euro'})
 
 # Rename
 dt.rename(columns = {'Country or region':'Country'}, inplace = True)
