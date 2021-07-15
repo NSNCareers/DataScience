@@ -56,7 +56,10 @@ def updateRow(country):
         return country.replace('#','')
     else:
         return country
-
+def convertListToString(list):
+    return ''.join(map(str,list))
+    
+dt['New_Processed_doc'] = dt['Processed_doc'].apply()
 # Check bool result
 boolResult = dt['Country or region'].str.contains('Finland')
 # To update dataframe, put in new column
