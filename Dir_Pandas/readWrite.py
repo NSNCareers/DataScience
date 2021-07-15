@@ -22,7 +22,7 @@ filt = (dt['Country or region']== 'Denmark')
 senegal_dt = dt.loc[filt]
 modified_excel = senegal_dt.to_csv('Dir_Pandas/2019Modified - Copy.csv')
 # Export json
-modified_json = senegal_dt.to_json('Dir_Pandas/2019Modified - json.csv',orient='records', lines = True)
+modified_json = senegal_dt.to_json('Dir_Pandas/2019Modified - .json',orient='records', lines = True)
 
 # Reading csv files using Pandas
 skip_rows = pd.read_csv("Dir_Pandas/2019 - Copy.csv",skiprows = 3) # Skip rows
