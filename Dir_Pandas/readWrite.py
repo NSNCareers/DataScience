@@ -1,4 +1,7 @@
 import pandas as pd
+import  numpy as np
+
+
 dt = pd.read_csv("Dir_Pandas/2019 - Copy.csv",na_values=False)
 
 # Writting in files using Python build in liabrary
@@ -56,10 +59,17 @@ def updateRow(country):
         return country.replace('#','')
     else:
         return country
+
+# Converting a list into a string
 def convertListToString(list):
-    return ''.join(map(str,list))
-    
-dt['New_Processed_doc'] = dt['Processed_doc'].apply()
+    try:
+        return ''.join(map(str,list))
+    except TypeError:
+        return np.nan
+
+dt['New_Processed_doc'] = dt['Processed_doc'].apply(convertListToString)
+
+
 # Check bool result
 boolResult = dt['Country or region'].str.contains('Finland')
 # To update dataframe, put in new column
@@ -78,4 +88,4 @@ dt['Replace'] = dt['Country or region'].replace({'Denmark':'DDK','Germany':'Euro
 
 # Rename
 dt.rename(columns = {'Country or region':'Country'}, inplace = True)
-print()
+print(type(dt))
