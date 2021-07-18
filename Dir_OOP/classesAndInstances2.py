@@ -5,6 +5,7 @@
 # self is the instance of the class
 # We can use the special init function to initialize our class
 class Employee:
+    # we can use the None key word to pass optional arguments e.g pay=None
 
     def __init__(self,fistName,lastName,gender,pay): # This is the constructor and gets called each time the class is used
         self.first = fistName
