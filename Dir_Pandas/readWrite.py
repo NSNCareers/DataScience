@@ -61,13 +61,13 @@ def updateRow(country):
         return country
 
 # Converting a list into a string
-def convertListToString(list):
+def convertListToString(rows):
     try:
-        return ''.join(map(str,list))
+        return ''.join(map(str,rows))
     except TypeError:
         return np.nan
 
-dt['New_Processed_doc'] = dt['Processed_doc'].apply(convertListToString)
+dt['data'] = dt['Processed_doc'].apply(convertListToString)
 
 
 # Check bool result
