@@ -20,6 +20,7 @@ csv_writer.writerow(['Title','Tag'])
 
 def getContent():
     results = rq.get('http://qa.loginapp.nsncareers.com/') 
+    # http://forecast.weather.gov/MapClick.php?lat=37.7772&lon=-122.4168
     soup = BeautifulSoup(results.text,'lxml') # lxml parser helps to parse xml and html contenet
     # content = soup.prettify() # Helps to indent
     # content = soup.title # Gets page title
