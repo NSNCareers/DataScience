@@ -1,5 +1,12 @@
 {
-    "python.defaultInterpreterPath": "C:/Users/ajang/AppData/Local/Programs/Python/Python38/python.exe",
+    "python.defaultInterpreterPath": "C:/Users/ajang/AppData/Local/Programs/Python/Python39/python.exe",
     "python.analysis.autoImportCompletions": true,
     "files.autoSave": "afterDelay",
+    "jupyter.experiments.optOutFrom": [
+        "NativeNotebookEditor"
+    ],
+    "jupyter.jupyterServerType": "local",
+    "python.insidersChannel": "daily",
+    //"jupyter.textOutputLimit": 0,
+    "jupyter.experimental.debugging": true
 }
