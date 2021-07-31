@@ -70,6 +70,7 @@ def convertListToString(rows):
 dt['data'] = dt['Processed_doc'].apply(convertListToString)
 
 
+
 # Check bool result
 boolResult = dt['Country or region'].str.contains('Finland')
 # To update dataframe, put in new column
